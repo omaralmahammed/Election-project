@@ -1,0 +1,138 @@
+﻿@model IEnumerable<project5_voting.Models.Contact>
+
+@{
+    ViewBag.Title = "AdminContact";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<h2 class="text-center my-4">
+    اتصل بنا
+</h2>
+
+<table class="table table-hover">
+    <thead class="table-primary">
+        <tr>
+            <td class="text-center"></td>
+            <td class="text-center">الحالة <span class="sort-icon">▲</span></td>
+            <th scope="col" class="sortable text-center" data-sort="time">تاريخ الارسال <span class="sort-icon">▲</span></th>
+            <th scope="col" class="sortable text-center" data-sort="date">وقت الارسال <span class="sort-icon">▲</span></th>
+            <th scope="col" class="sortable text-center" data-sort="subject">الموضع <span class="sort-icon">▲</span></th>
+            <th scope="col" class="sortable text-center" data-sort="subject">الاسم <span class="sort-icon">▲</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="party-row" data-time="@item.time" data-date="@item.date" data-subject="@item.subject" data-name="@item.name">
+
+                <td class="text-center">
+                    <a href="@Url.Action("Delete", new { id = item.id })" class="btn btn-danger btn-sm ml-1">حذف</a>
+
+                    @Html.ActionLink("التفاصيل", "ContactDetails", new { id = item.id }, new { @class = "btn btn-secondary btn-sm ml-1" })
+                    @if (item.status == null)
+                    {
+                        @Html.ActionLink("رد", "Response", new { id = item.id }, new { @class = "btn btn-info btn-sm ml-1" })
+                    }
+                    else
+                    {
+                        <button class="btn btn-info btn-sm ml-1" onclick="displayAlert()">رد</button>
+                    }
+                </td>
+                <td class="text-center">
+                    @{
+                        if (item.status == null)
+                        {
+                            <span class="text-danger">Incomplete</span>
+                        }
+                        else
+                        {
+                            <span class="text-success">Completed</span>
+                        }
+                    }
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.time)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.date)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.subject)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var asc = true;
+
+        $(".sortable").click(function () {
+            var column = $(this).data("sort");
+            var rows = $(".party-row").get();
+
+            rows.sort(function (a, b) {
+                var A = $(a).data(column);
+                var B = $(b).data(column);
+
+                // Check for number or date type
+                if ($.isNumeric(A) && $.isNumeric(B)) {
+                    A = parseFloat(A);
+                    B = parseFloat(B);
+                } else if (Date.parse(A) && Date.parse(B)) {
+                    A = new Date(A).getTime();
+                    B = new Date(B).getTime();
+                } else {
+                    A = A.toLowerCase();
+                    B = B.toLowerCase();
+                }
+
+                if (asc) {
+                    return (A < B) ? -1 : (A > B) ? 1 : 0;
+                } else {
+                    return (A > B) ? -1 : (A < B) ? 1 : 0;
+                }
+            });
+
+            asc = !asc;
+            $.each(rows, function (index, row) {
+                $("tbody").append(row);
+            });
+
+            $(".sort-icon").text("▲");
+            if (!asc) {
+                $(this).find(".sort-icon").text("▼");
+            }
+        });
+
+        // Search functionality
+        $("#searchInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $(".party-row").filter(function () {
+                $(this).toggle($(this).data("name").toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    function displayAlert() {
+        Swal.fire({
+            title: "لقد تم الرد على هذه الرسالة",
+            text: "لرؤية الرد يمكن الضغط على التفاصيل",
+            showConfirmButton: false,
+            timer: 2800,
+
+        });
+    }
+
+
+</script>
+

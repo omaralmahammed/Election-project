@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="~/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
+
+    <style>
+        .btn-secondary {
+            color: #ffff;
+            background-color: forestgreen;
+            border-color: forestgreen;
+        }
+       
+        .col-lg-3.col-md-6 {
+            text-align: right;
+        }
+
+        .col-lg-3.col-md-6 .btn-link {
+            display: block;
+            text-align: right;
+            padding-right: 0;
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5" style="direction: rtl;">
+        <a href="@Url.Action("Index", "Home")" class="navbar-brand d-flex align-items-center">
+            @*<h1 class="m-0">الانتخابات الأردنية</h1>*@
+            <img src="~/image/logo 1.png" style="width:120px" height="100px"/>
+        </a>
+        <button type="button" class="navbar-toggler ms-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="d-flex align-items-center w-100">
+                <div class="navbar-nav mx-auto p-4 p-lg-0">
+
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Home")" class="nav-link active">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("About", "Home")" class="nav-link">عنا</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("ploice", "Home")" class="nav-link">سياساتنا</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                طلبات
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a href="@Url.Action("Createuser", "party")" class="dropdown-item">طلب الترشح للقائمة الحزبية</a>
+                                <a href="@Url.Action("localList", "localCandidates")" class="dropdown-item">طلب الترشح للقائمة المحلية</a>
+                                <a href="@Url.Action("addAdvertisement", "Ads")" class="dropdown-item">طلب الاعلانات</a>
+                                <a href="@Url.Action("DebateForm", "Debate")" class="dropdown-item">طلب المناظرات</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("localANDparty", "ElectionArea")" class="nav-item nav-link">الدوائر الانتخابية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Publishs", "Ads")" class="nav-item nav-link">الاعلانات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("UserDebate", "Home")" class="nav-item nav-link">المناظرات</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="@Url.Action("VotersDetails", "Home")" class="nav-item nav-link">اين تنتخب</a>
+                        </li>
+                        @{
+                            var inTime = Session["inTime"];
+                            if (inTime != null && (bool)inTime)
+                            {
+
+
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Result", "Result")" class="nav-item nav-link">النتائج</a>
+                                </li>
+                            }
+
+                        }
+                        <li class="nav-item">
+                            <a href="@Url.Action("Contact", "Contacts")" class="nav-item nav-link">اتصل بنا</a>
+                        </li>
+
+                        <li class="nav-item">
+                            @{
+                                var loggedInUser = Session["logedInUser"];
+                                if (loggedInUser == null)
+                                {
+                                    <a href="@Url.Action("firststeplogin", "Login")" class="nav-item nav-link btn ms-3">تسجيل الدخول</a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("LogoutUser", "Login")" class="nav-item nav-link ms-3">تسجيل الخروج</a>
+                                }
+                            }
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar End -->
+
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s" style="direction: rtl;">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">الانتخابات الأردنية</h5>
+                    <p>موقع خاص بتنظيم عملية الانتخاب. ويسهل عملية الانتخاب في جميع أنحاء المملكة الأردنية الهاشمية.</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">مكتبنا</h5>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>الأردن، عمان</p>
+                  
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:election2024jordan@gmail.com" class="text-white">
+    election2024jordan@gmail.com
+</a></p>
+                    <div class="d-flex pt-3">
+                        <a class="btn btn-square btn-secondary rounded-circle me-2" href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                        <button type="button" class="btn btn-square btn-secondary rounded-circle me-2" onclick="window.location.href='tel:+0777956583'">
+                            <i class="fas fa-phone-alt"></i>
+                        </button>
+                        <a class="btn btn-square btn-secondary rounded-circle me-2" href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">روابط سريعة</h5>
+                    <a class="btn btn-link " href="@Url.Action("About", "Home")">من نحن</a>
+                    <a class="btn btn-link" href="@Url.Action("Contact", "Contacts")">اتصل بنا</a>
+                    <a class="btn btn-link" href="@Url.Action("Service", "Home")">خدماتنا</a>
+                    <a class="btn btn-link" href="@Url.Action("ploice", "Home")">الشروط والأحكام</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">موقعنا</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3363.009732346297!2d35.84479788205883!3d32.55258550609567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c7715f2c2e7ab%3A0x51755840c8ddbefd!2sOrange%20Digital%20Village%20Irbid!5e0!3m2!1sen!2sjo!4v1724143738549!5m2!1sen!2sjo" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/66c45248ea492f34bc0809f7/1i5ne2qvr';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/lib/counterup/counterup.min.js"></script>
+    <script src="~/lib/parallax/parallax.min.js"></script>
+    <script src="~/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script src="~/js/main.js"></script>
+</body>
+</html>
+
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)

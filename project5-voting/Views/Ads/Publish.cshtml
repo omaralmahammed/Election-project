@@ -1,0 +1,17 @@
+﻿
+@model project5_voting.Models.Ad
+
+@{
+    ViewBag.Title = "Publish";
+}
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="~/Images/@Model.image" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@Model.name</h5>
+        <p class="card-title">@Model.areaName</p>
+        <p class="card-text">@Model.campaignSlagan</p>
+        <p class="card-text">@Model.description</p>
+
+    </div>
+</div>

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<project5_voting.Models.localList>
+
+@{
+    ViewBag.Title = "listsDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+
+    .card-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .card {
+        width: 300px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+        margin: 10px;
+    }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card h5 {
+            position: absolute;
+            left: 100px;
+            top: 19px;
+            font-size: 45px;
+            padding-bottom: -22px;
+            margin: 7px 2px;
+        }
+
+
+
+    .btn-primary {
+        position: absolute;
+        top: 105px;
+        left: 84px;
+        font-size: 18px;
+        background-color: #5b8c51;
+        border-color: #5b8c51;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #5b8c51;
+            border-color: #5b8c51;
+        }
+
+    h2 {
+        font-size: 66px;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: 5rem 0rem;
+        border: 2px solid #5b8c51; /* Green border */
+        box-shadow: 0 4px 8px rgba(40, 167, 69, 0.5); /* Green shadow */
+    }
+</style>
+
+<div class="container">
+    <h2 style="text-align:center;">القوائم المحلية</h2>
+    <hr />
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.listName</h5>
+                        @*<h6 class="card-subtitle mb-2 text-muted">Election District: @item.electionDistrict</h6>*@
+                        <p class="card-text">
+                            <a href="@Url.Action("CandidatesName", new { id = item.id })" class="btn btn-primary">اسماء المرشحين</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

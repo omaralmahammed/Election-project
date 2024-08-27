@@ -1,0 +1,32 @@
+﻿@model IEnumerable<project5_voting.Models.Debate>
+
+@{
+    ViewBag.Title = "UserDebate";
+}
+
+
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <img src="https://www.addustour.com/file.php?fileid=615328&width=800&height=450" alt="Alternate Text" class="img-fluid" />
+</div>
+
+
+<div class="container" dir="rtl">
+    <h2 class="text-center">المناظرات</h2>
+    <br />
+    <div class="row d-flex justify-content-start">
+        @foreach (var item in Model)
+        {
+            <div class="card mx-2" style="width: 450px;">
+                <img src="https://www.shutterstock.com/shutterstock/photos/1336472291/display_1500/stock-photo-speech-of-an-abstract-man-in-a-suit-on-stage-at-the-stand-for-performances-tribune-or-pulpit-for-1336472291.jpg" class="card-img-top" alt="Debate Image">
+                <div class="card-body ">
+                    <h6 class="card-title text-truncate">@item.debateSubject</h6>
+                    <p>انضم الى هذه المناظرة بين المرشح @item.firstCandidateName , و المرشح @item.secondCandidateName <span class="fw-bold">من دائرة @item.electionArea</span></p>
+
+                    <p class="card-text text-truncate">اليوم: @item.debateDate</p>
+                    <p class="card-text text-truncate">الوقت: @item.debateTime</p>
+                    <a href="@item.zoomLink" class="btn btn-primary" >رابط المناظرة</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

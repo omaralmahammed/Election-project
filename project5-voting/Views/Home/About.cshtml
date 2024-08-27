@@ -1,0 +1,143 @@
+﻿@*<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">*@
+<style>
+
+    .container {
+        max-width: 1100px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1.text-center.mb-4 {
+        color: #28a745;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .project-description {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 50px;
+        gap: 30px; /* Space between text and image */
+    }
+
+    .text-content {
+        max-width: 50%;
+        line-height: 1.6;
+        font-size: 1.1rem;
+        color: #343a40;
+    }
+
+        .text-content p {
+            margin-bottom: 20px; /* Spacing between paragraphs */
+        }
+
+    .project-image {
+        max-width: 50%;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for image */
+    }
+
+    .revenue-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Space between cards */
+    }
+
+    .revenue-card {
+        flex: 1 1 calc(50% - 20px); /* Two cards per row with a gap */
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        transition: transform
+    }
+
+    .revenue-card {
+        flex: 1 1 calc(50% - 20px); /* Two cards per row with a gap */
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .revenue-card img {
+            border-radius: 8px;
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .revenue-card h5 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: #dc3545; /* Red for emphasis */
+            font-weight: bold;
+        }
+
+        .revenue-card p {
+            color: #343a40;
+            font-size: 1rem;
+        }
+
+        .revenue-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .revenue-card:active {
+            transform: scale(0.98);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+</style>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">حول المشروع</h1>
+
+    <div class="project-description">
+        <div class="text-content">
+            <p>هذا المشروع هو تطبيق إلكتروني مخصص لإدارة الانتخابات. يهدف إلى تسهيل عملية تسجيل الأحزاب والمرشحين، وتوفير واجهة مستخدم سهلة الاستخدام لإدارة البيانات ومتابعة التصويت.</p>
+            <p>يمكن استخدام هذا النظام في الانتخابات الأخرى بفضل مرونته وقابليته للتخصيص.</p>
+        </div>
+        <img src="~/images/about.jpg" alt="About the project" class="project-image img-fluid">
+    </div>
+    <h1 class="text-center mb-4">خدماتنا</h1>
+    <div class="revenue-cards">
+        <div class="revenue-card">
+            <img src="~/images/الانتخابات البلدية.png" alt="Municipal Election">
+            <h5>نشر اعلانات </h5>
+            <p>نشر الحملات الانتخابية للمرشحين والاعلان عنها </p>
+        </div>
+        <div class="revenue-card">
+            <img src="~/images/الانتخابات الجامعية.jpg" alt="University Election">
+            <h5>  طلبات الترشح </h5>
+            <p>تنظيم انتخابات للطلاب أو الكليات بشكل منظم.</p>
+        </div>
+        <div class="revenue-card">
+            <img src="~/images/الانتخابات المهنية.jpg" alt="Professional Election">
+            <h5>الانتخابات المهنية</h5>
+            <p>دعم تنظيم انتخابات للمؤسسات المهنية أو النقابات.</p>
+        </div>
+        <div class="revenue-card">
+            <img src="~/images/الانتخابات الخاصة بالشركات.jpg" alt="Corporate Election">
+            <h5>الانتخابات الخاصة بالشركات</h5>
+            <p>إدارة انتخابات مجالس الإدارة أو اللجان في الشركات.</p>
+        </div>
+        <div class="revenue-card">
+            <img src="~/images/النقابات العمالية.jpg" alt="Trade Unions">
+            <h5>النقابات العمالية</h5>
+            <p>تنظيم انتخابات للنقابات العمالية وتعزيز التفاعل بين الأعضاء.</p>
+        </div>
+        <div class="revenue-card">
+            <img src="~/images/الانتخابات الرئاسية العالمية.jpg" alt="Global Presidential Elections">
+            <h5>الانتخابات الرئاسية العالمية</h5>
+            <p>تنظيم وإدارة الانتخابات الرئاسية على مستوى عالمي.</p>
+        </div>
+    </div>
+</div>
+

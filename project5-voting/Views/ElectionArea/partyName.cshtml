@@ -1,0 +1,125 @@
+﻿@model IEnumerable<project5_voting.Models.PartyList>
+
+
+@{
+    ViewBag.Title = "partyName";
+}
+
+<style>
+
+    /* Container Styling */
+    .containerpartyNam {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Button Styling */
+    .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .btn-primary {
+        background-color: #28a745; /* Green button */
+    }
+
+        .btn-primary:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+    .btn-secondary {
+        padding: 5px;
+        border-radius: 7px;
+        background-color: #5b8c51;
+    }
+
+        .btn-secondary:hover {
+            background-color: #2c6b2f; /* Even darker green on hover */
+        }
+
+    /* Table Styling */
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden; /* Ensures border-radius is applied */
+    }
+
+        .styled-table thead th {
+            background-color: #5b8c51; /* Green header */
+            color: #fff;
+            padding: 12px 15px;
+            text-align: right;
+        }
+
+        .styled-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9; /* Light grey for even rows */
+        }
+
+        .styled-table tbody tr:hover {
+            background-color: #e2f2e2; /* Light green for hover effect */
+        }
+
+        .styled-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .styled-table th, .styled-table td {
+            text-align: right;
+            font-size: 24px;
+        }
+</style>
+<body>
+    <div class="containerpartyNam" style="text-align: center;">
+        <h1>اسماء القوائم الحزبية المترشحة</h1>
+
+
+
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>المترشحين</th>
+
+                    <th>الصورة</th>
+
+                    <th>اسم الحزب</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink("اسماء المرشحين", "PatryCandidatesName", new { id = item.id }, new { @class = "btn-secondary" })
+                        </td>
+
+                        <td>
+                            <img src="~/image1/@Url.Content(item.partyImage)" alt="@item.partyImage" style="width:100px; height:auto;" />
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.partyName)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

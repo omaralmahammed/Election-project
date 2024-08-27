@@ -1,0 +1,410 @@
+﻿@model IEnumerable<project5_voting.Models.PartyCandidate>
+
+<main>
+
+    <!-- Counter Facts Start -->
+
+    <div class="resultsContainer wow fadeInRight" data-wow-delay="0.3s">
+        <div class="resultsPageTitleContainer" style="text-align: center; margin-bottom: 20px;">
+            <h5 class="sub-title pe-3 resultsPageTitle" style="font-size: 36px; font-weight: 600; color: #333;">
+                نسبة التصويت للقوائم الحزبية
+            </h5>
+        </div>
+    </div>
+
+    <div class="container-fluid counter-facts py-5">
+        <div class="container py-5">
+            <div class="row g-4 resultsCardsContainer justify-content-center">
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.7s">
+                    <a href="@Url.Action("partyResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/الاحزاب.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">القوائم الحزبية</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">83%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم الحزبية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="resultsContainer wow fadeInRight" data-wow-delay="0.3s">
+        <div class="resultsPageTitleContainer" style="text-align: center; margin-bottom: 20px;">
+            <h5 class="sub-title pe-3 resultsPageTitle" style="font-size: 36px; font-weight: 600; color: #333;">
+                نسبة التصويت للقوائم المحلية
+            </h5>
+        </div>
+    </div>
+
+
+    <div class="container-fluid counter-facts py-5">
+        <div class="container py-5">
+            <div class="row g-4 resultsCardsContainer justify-content-center">
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.1s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/3.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">العاصمة الأولى</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">79%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.3s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/4.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">العاصمة الثانية</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">83%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.5s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/5.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">العاصمة الثالثة</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">81%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.7s">
+                    <a href="@Url.Action("detailedResults", "Result", new { id = "اربد الاولى" })" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/1.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">اربد الاولى</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">@TempData["localPercentIrbid1"]%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.1s">
+                    <a href="@Url.Action("detailedResults", "Result", new { id = "اربد الثانية" })" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/2.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">اربد الثانية</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">@TempData["localPercentIrbid2"]%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.3s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/7.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">البلقاء</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">87%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.5s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/8.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">الكرك</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">85%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.7s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/11.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">معان</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">84%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.1s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/6.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">الزرقاء</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">90%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.3s">
+                    <a href="@Url.Action("detailedResults", "Result", new { id = "المفرق" })" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/13.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">المفرق</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">90%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.5s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/14.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">الطفيلة</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">81%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.7s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/10.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">مأدبا</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">83%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.1s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/12.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">جرش</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">80%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.3s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/9.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">عجلون</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">81%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.5s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/15.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">العقية</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">78%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.7s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/16.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">بدو الشمال</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">79%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.1s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/17.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">بدو الوسط</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">83%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp resultsCardBody card" data-wow-delay="0.3s">
+                    <a href="@Url.Action("staticResults","Result")" class="card" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); text-decoration: none;">
+                        <div class="card__image-container" style="position: relative; height: 200px; width: 100%; overflow: hidden;">
+                            <img src="~/image/18.jpg" alt="صورة توضيحية" class="card__image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="card__overlay" style="border-radius: 0 0 15px 15px;">
+                            <div class="card__header" style="padding: 1.5em; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 15px 15px;">
+                                <h3 class="card__title" style="font-weight: 700; color: #333;">بدو الجنوب</h3>
+                                <span class="card__status" style="font-weight: 600; color: #4CAF50; font-size: 35px;">77%</span>
+                            </div>
+                            <p class="card__description" style="padding: 1em 1.5em; color: green;">نتائج للقوائم المحلية هنا.</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Counter Facts End -->
+</main>
+
+@{
+    <style>
+        .card {
+            position: relative;
+            display: block;
+            border-radius: 15px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .card__image-container {
+            position: relative;
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .card__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 0 0 15px 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card__overlay {
+            transform: translateY(0);
+        }
+
+        .card__header {
+            padding: 1.5em;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 0 0 15px 15px;
+        }
+
+        .card__title {
+            font-size: 1.2em;
+            margin: 0;
+            color: #333;
+        }
+
+        .card__status {
+            display: block;
+            font-size: 1.5em;
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .card__description {
+            padding: 1em 1.5em;
+            margin: 0;
+            color: green;
+            font-family: 'Noto Sans JP', sans-serif;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+    </style>
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            // Initiate the wowjs
+            new WOW().init();
+
+            // Facts counter
+            $('[data-toggle="counter-up"]').counterUp({
+                delay: 3,
+                time: 1000
+            });
+        });
+    </script>
+}

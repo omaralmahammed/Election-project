@@ -1,0 +1,135 @@
+﻿@model project5_voting.Models.PartyCandidate
+
+<!-- إضافة ملفات SweetAlert2 CSS و JS -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+@{
+    ViewBag.Title = "إنشاء مرشح";
+}
+
+<div class="container mt-5" style="direction: rtl; text-align: right;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-success text-white text-center">
+                    <h2 class="text-white">إنشاء مرشح جديد</h2>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Create", "party", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+                        <div class="form-group mb-3">
+                            <label for="email">البريد الإلكتروني</label>
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="name">الاسم</label>
+                            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="nationalId">الرقم الوطني</label>
+                            @Html.EditorFor(model => model.nastionalID, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.nastionalID, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="gender">الجنس</label>
+                            @Html.DropDownListFor(model => model.gender, new SelectList(new List<SelectListItem>
+                                                                    {
+                                    new SelectListItem { Value = "ذكر", Text = "ذكر" },
+                                    new SelectListItem { Value = "أنثى", Text = "أنثى" }
+                                }, "Value", "Text"), "اختر الجنس", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="birthDay">تاريخ الميلاد</label>
+                            @Html.TextBoxFor(model => model.birthday, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                            @Html.ValidationMessageFor(model => model.birthday, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="typeOfChair">نوع المقعد</label>
+                            @Html.DropDownListFor(model => model.typeOfChair, new List<SelectListItem>
+                                                                    {
+                                    new SelectListItem { Text = "تنافسي", Value = "تنافسي" },
+                                    new SelectListItem { Text = "مسيحي", Value = "مسيحي" },
+                                    new SelectListItem { Text = "شركسي", Value = "شركسي" }
+                                }, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.typeOfChair, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="religion">الدين</label>
+                            @Html.DropDownListFor(model => model.religion, new SelectList(new List<SelectListItem>
+                                                                    {
+                                    new SelectListItem { Text = "مسلم", Value = "مسلم" },
+                                    new SelectListItem { Text = "مسيحي", Value = "مسيحي" }
+                                }, "Value", "Text"), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.religion, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="electoralDistrict">المنطقة الانتخابية</label>
+                            @Html.DropDownListFor(model => model.electoralDistrict, new List<SelectListItem>
+                                                                    {
+                                    new SelectListItem { Text = "عمان الاولى", Value = "عمان الاولى" },
+                                    new SelectListItem { Text = "عمان الثانية", Value = "عمان الثانية" },
+                                    new SelectListItem { Text = "عمان الثالثة", Value = "عمان الثالثة" },
+                                    new SelectListItem { Text = "إربد الاولى ", Value = "إربد الاولى" },
+                                    new SelectListItem { Text = "إربد الثانية", Value = "إربد الثانية" },
+                                    new SelectListItem { Text = "البلقاء", Value = "البلقاء" },
+                                    new SelectListItem { Text = "الكرك", Value = "الكرك" },
+                                    new SelectListItem { Text = "معان", Value = "معان" },
+                                    new SelectListItem { Text = "الزرقاء", Value = "الزرقاء" },
+                                    new SelectListItem { Text = "المفرق", Value = "المفرق" },
+                                    new SelectListItem { Text = "الطفيلة", Value = "الطفيلة" },
+                                    new SelectListItem { Text = "مادبا", Value = "مادبا" },
+                                    new SelectListItem { Text = "جرش", Value = "جرش" },
+                                    new SelectListItem { Text = "عجلون", Value = "عجلون" },
+                                    new SelectListItem { Text = "العقبة", Value = "العقبة" },
+                                    new SelectListItem { Text = "البادية", Value = "البادية" },
+                                    new SelectListItem { Text = "بدوي شمال", Value = "بدوي شمال" },
+                                    new SelectListItem { Text = "بدوي وسط", Value = "بدوي وسط" },
+                                    new SelectListItem { Text = "بدوي جنوب", Value = "بدوي جنوب" }
+                                }, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.electoralDistrict, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="candidateImage">صورة المرشح</label>
+                            <input type="file" name="candidateImage" class="form-control" accept="image/*" />
+                            @Html.ValidationMessageFor(model => model.candidateImage, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group text-center">
+                            @Html.ActionLink("العودة إلى القائمة", "index", "party", null, new { @class = "btn btn-primary btn-animate mx-2 " })
+                            <input type="submit" value="إنشاء" class="btn btn-secondary btn-animate mx-2" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @if (ViewBag.Errors != null)
+    {
+        <script>
+            Swal.fire({
+                title: 'تحذير!',
+                text: '@ViewBag.Errors',
+                icon: 'error',
+                confirmButtonText: 'موافق'
+            });
+        </script>
+    }
+}
